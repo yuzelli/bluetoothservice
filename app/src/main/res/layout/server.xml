@@ -3,77 +3,201 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="MergeRootFrame" >
+    tools:ignore="MergeRootFrame">
 
-    <LinearLayout 
+    <LinearLayout
+        android:id="@+id/ll_centent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="vertical">
-        
-       	<Button
-       		android:id="@+id/btn_blth_visiblity"
- 	 		android:layout_width="match_parent"
-      	 	android:layout_height="0dp"
-      	 	android:layout_weight="1"
-      	 	android:layout_marginBottom="5dp"
-       	 	android:text="@string/btn_blth_visiblity"/>
-    	<Button 
-	        android:id="@+id/btn_blth_disconnect"
-	        android:layout_width="match_parent"
-			android:layout_height="0dp"
-	        android:layout_weight="1"
-	        android:layout_marginBottom="5dp"
-	        android:text="@string/btn_blth_disconnect"/>
-    	<TextView 
-	        android:id="@+id/tv_connect_state"
-	        android:layout_width="match_parent"
-	        android:layout_height="0dp"
-	        android:layout_weight="1"
-	        android:paddingTop="10dp"
-	        android:paddingBottom="10dp"
-	        android:gravity="center"
-	        android:textSize="20sp"
-	        android:text="@string/connect_state"/>
-        <LinearLayout 
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_marginTop="10dp"
-	        android:orientation="horizontal">
-	        <EditText
-	            android:id="@+id/edt_message"
-	            android:layout_width="0dp"
-	            android:layout_height="wrap_content"
-	            android:layout_marginLeft="15dp"
-	            android:layout_weight="3"
-	            android:hint="@string/write_tip"
-	            android:textSize="16sp" />
-	
-	        <Button
-	        	android:id="@+id/btn_sendmessage"
-	        	android:layout_width="25dp"
-	        	android:layout_height="wrap_content"
-	        	android:layout_weight="1"
-	        	android:layout_marginLeft="5dp" 
-	        	android:layout_marginRight="5dp"
-	        	android:text="@string/send"
-	        	android:textSize="20sp"
-	        	android:textColor="#0000FF"/>        
-	    </LinearLayout>
-        <ScrollView
+
+        <Button
+            android:id="@+id/btn_blth_visiblity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp">
-	    	<TextView
-	    	    android:id="@+id/tv_chat"
-	    	    android:layout_width="match_parent"
-	    	    android:layout_height="wrap_content"
-	    	    android:layout_marginLeft="15dp"
-	    	    android:layout_marginRight="15dp"
-	    	    android:paddingTop="7dp"
-	    	    android:textSize="15sp"/>
-		</ScrollView>
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:text="@string/btn_blth_visiblity" />
+
+        <Button
+            android:id="@+id/btn_blth_disconnect"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:text="@string/btn_blth_disconnect" />
+
+        <TextView
+            android:id="@+id/tv_connect_state"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/connect_state"
+            android:textSize="20sp" />
     </LinearLayout>
-    
-    
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_sendmessage"
+        android:layout_below="@+id/ll_centent"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/ll_left"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:gravity="right|center_vertical"
+                    android:text="甲醛："
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:gravity="right|center_vertical"
+                    android:text="苯："
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:gravity="right|center_vertical"
+                    android:text="二氧化碳："
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:gravity="right|center_vertical"
+                    android:text="一氧化碳："
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:gravity="right|center_vertical"
+                    android:text="二氧化硫："
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:gravity="right|center_vertical"
+                    android:text="氮氧化合物："
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ll_left"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_jiaquan"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/view_shape_line"
+                    android:paddingLeft="10dp"
+                    android:text="100"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_ben"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/view_shape_line"
+                    android:paddingLeft="10dp"
+                    android:text="100"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_co2"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/view_shape_line"
+                    android:paddingLeft="10dp"
+                    android:text="100"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_co"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/view_shape_line"
+                    android:paddingLeft="10dp"
+                    android:text="100"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_so2"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/view_shape_line"
+                    android:paddingLeft="10dp"
+                    android:text="100"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/view_shape_line"
+                    android:paddingLeft="10dp"
+                    android:text="100"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_sendmessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        android:text="@string/send"
+        android:textColor="#0000FF"
+        android:textSize="20sp" />
 </RelativeLayout>

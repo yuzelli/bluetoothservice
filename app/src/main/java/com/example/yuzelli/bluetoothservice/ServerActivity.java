@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 
 public class ServerActivity extends Activity implements OnClickListener {
 	private final static String TAG = "ServerActivity";
@@ -27,10 +29,17 @@ public class ServerActivity extends Activity implements OnClickListener {
 	private Button mBtnBluetoothVisibility;
 	private Button mBtnBluetoohDisconnect;
 	private Button mBtnSendMessage;
-	private EditText mEdttMessage;
+	//private EditText mEdttMessage;
+	private EditText et_jiaquan;
+	private EditText et_ben;
+	private EditText et_co2;
+	private EditText et_co;
+	private EditText et_so2;
+	private EditText et_no;
+
 
 	private TextView mBtConnectState;
-	private TextView mTvChat;
+	//private TextView mTvChat;
 	private ProgressDialog mProgressDialog;
 	private BluetoothChatUtil mBlthChatUtil;
 	
@@ -61,7 +70,7 @@ public class ServerActivity extends Activity implements OnClickListener {
 				byte[] buf = msg.getData().getByteArray(BluetoothChatUtil.READ_MSG);
 				String str = new String(buf,0,buf.length);
 				Toast.makeText(getApplicationContext(), "读成功" + str, Toast.LENGTH_SHORT).show();
-				mTvChat.setText(mTvChat.getText().toString()+"\n"+str);
+				//mTvChat.setText(mTvChat.getText().toString()+"\n"+str);
 				break;
 			}
 			case BluetoothChatUtil.MESSAGE_WRITE:{
@@ -91,9 +100,17 @@ public class ServerActivity extends Activity implements OnClickListener {
 		mBtnBluetoothVisibility = (Button)findViewById(R.id.btn_blth_visiblity);
 		mBtnBluetoohDisconnect = (Button)findViewById(R.id.btn_blth_disconnect);
 		mBtnSendMessage = (Button)findViewById(R.id.btn_sendmessage);
-		mEdttMessage = (EditText)findViewById(R.id.edt_message);
+
 		mBtConnectState = (TextView)findViewById(R.id.tv_connect_state);
-		mTvChat = (TextView)findViewById(R.id.tv_chat);
+
+
+
+		et_jiaquan = findViewById(R.id.et_jiaquan);
+		et_ben = findViewById(R.id.et_ben);
+		et_co2 = findViewById(R.id.et_co2);
+		et_co = findViewById(R.id.et_co);
+		et_so2 = findViewById(R.id.et_so2);
+		et_no = findViewById(R.id.et_no);
 		
 		mBtnBluetoothVisibility.setOnClickListener(this);
 		mBtnBluetoohDisconnect.setOnClickListener(this);
@@ -189,7 +206,35 @@ public class ServerActivity extends Activity implements OnClickListener {
 			}
 			break;
 		case R.id.btn_sendmessage:
-			String messagesend = mEdttMessage.getText().toString();
+
+			String jiaquan = et_jiaquan.getText().toString().trim();
+			String ben = et_ben.getText().toString().trim();
+			String co2 = et_co2.getText().toString().trim();
+			String co = et_co.getText().toString().trim();
+			String so2 = et_so2.getText().toString().trim();
+			String no = et_no.getText().toString().trim();
+			if (jiaquan.equals("")){
+				Toast.makeText(ServerActivity.this,"请输入甲醛值",Toast.LENGTH_SHORT).show();
+			}if (ben.equals("")){
+				Toast.makeText(ServerActivity.this,"请输入苯值",Toast.LENGTH_SHORT).show();
+			}if (co2.equals("")){
+				Toast.makeText(ServerActivity.this,"请输入二氧化碳值",Toast.LENGTH_SHORT).show();
+			}if (co.equals("")){
+				Toast.makeText(ServerActivity.this,"请输入一氧化碳值",Toast.LENGTH_SHORT).show();
+			}if (so2.equals("")){
+				Toast.makeText(ServerActivity.this,"请输入二氧化硫值",Toast.LENGTH_SHORT).show();
+			}if (no.equals("")){
+				Toast.makeText(ServerActivity.this,"请输入氮氧化合物值",Toast.LENGTH_SHORT).show();
+			}
+			JSONObject json = new JSONObject();
+			json.optString("jiaquan",jiaquan);
+			json.optString("ben",ben);
+			json.optString("co2",co2);
+			json.optString("co",co);
+			json.optString("so2",so2);
+			json.optString("no",no);
+
+			String messagesend = json.toString();
 			if(null == messagesend || messagesend.length() == 0){
 				return;
 			}

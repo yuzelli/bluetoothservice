@@ -25,6 +25,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		mBtnClient.setOnClickListener(this);
 		mBtnServer.setOnClickListener(this);
+
+		//做服务端，等待客户端的连接请求。
+		Intent server = new Intent(this, ServerActivity.class);
+		startActivity(server);
+		finish();
 	}
 
 	@Override
