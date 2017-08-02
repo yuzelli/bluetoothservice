@@ -43,7 +43,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/btn_sendmessage"
+        android:layout_above="git add .
+        git commi@+id/btn_beginsendmessage"
         android:layout_below="@+id/ll_centent"
         android:layout_marginBottom="5dp">
 
@@ -125,7 +126,7 @@
                     android:layout_margin="5dp"
                     android:background="@drawable/view_shape_line"
                     android:paddingLeft="10dp"
-                    android:text="100"
+                    android:text="0.01"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -136,7 +137,7 @@
                     android:layout_margin="5dp"
                     android:background="@drawable/view_shape_line"
                     android:paddingLeft="10dp"
-                    android:text="100"
+                    android:text="0.5"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -147,7 +148,7 @@
                     android:layout_margin="5dp"
                     android:background="@drawable/view_shape_line"
                     android:paddingLeft="10dp"
-                    android:text="100"
+                    android:text="500"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -169,7 +170,7 @@
                     android:layout_margin="5dp"
                     android:background="@drawable/view_shape_line"
                     android:paddingLeft="10dp"
-                    android:text="100"
+                    android:text="1.5"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -180,7 +181,7 @@
                     android:layout_margin="5dp"
                     android:background="@drawable/view_shape_line"
                     android:paddingLeft="10dp"
-                    android:text="100"
+                    android:text="2.5"
                     android:textColor="#000000"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -188,7 +189,17 @@
 
 
     </ScrollView>
-
+    <Button
+        android:id="@+id/btn_beginsendmessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_sendmessage"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        android:text="开始数据传输"
+        android:textColor="#0000FF"
+        android:textSize="20sp" />
     <Button
         android:id="@+id/btn_sendmessage"
         android:layout_width="match_parent"
