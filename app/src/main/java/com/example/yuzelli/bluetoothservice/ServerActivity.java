@@ -87,8 +87,20 @@ public class ServerActivity extends Activity implements OnClickListener {
                 }
                 case 3007: {
                     if (maySendMessage){
-                        mHandler.sendEmptyMessageAtTime(3007,1000*30);
+
                         sendMessInfo();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(1000*30);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                mHandler.sendEmptyMessage(3007);
+                            }
+                        }).start();
+
                         btn_beginsendmessage.setText("正在传输数据");
                     }else {
                         btn_beginsendmessage.setText("开始数据传输");
