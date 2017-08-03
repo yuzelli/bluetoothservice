@@ -14,6 +14,8 @@ public class OnTrialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_trial);
+        textView3 = (TextView) this.findViewById(R.id.textView3);
+        textView4 = (TextView) this.findViewById(R.id.textView4);
         textView3.postDelayed(new Runnable() {
             @Override
             public void run() {
